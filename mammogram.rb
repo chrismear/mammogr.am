@@ -1,8 +1,7 @@
 require 'sinatra/base'
 require 'haml'
 
-require 'load_app_settings'
-require 'models'
+require 'init'
 
 set :haml, :format => :html5
 

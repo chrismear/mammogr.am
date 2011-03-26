@@ -2,8 +2,7 @@
 
 require 'bundler'
 
-require 'load_app_settings'
-require 'models'
+require 'init'
 
 TAG_NAMES = ['snow', 'ice']
 
