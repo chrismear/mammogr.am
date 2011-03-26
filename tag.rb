@@ -5,7 +5,7 @@ class Tag
   
   property :id, Serial
   property :name, String, :length => 255
-  property :last_fetched_at, DateTime
+  property :last_fetched_at, Time
   
   has n, :photos
 end

@@ -33,7 +33,7 @@ puts "client: #{client.inspect}"
 
 # Fetch new media
 Tag.all.each do |tag|
-  if tag.last_fetched_at.nil? || ((Time.now.utc - tag.last_fetched_at.to_time) > 3600)
+  if tag.last_fetched_at.nil? || ((Time.now.utc - tag.last_fetched_at) > 3600)
     tag.photos.destroy
     
     puts "Fetching new media for tag #{tag.name}"
@@ -50,6 +50,6 @@ Tag.all.each do |tag|
     end
     
     tag.last_fetched_at = Time.now.utc
-    tag.save
+    tag.save!
   end
 end
