@@ -1,0 +1,13 @@
+!!!
+%head
+  %title Snow
+%body
+  %h1 Snow
+  %ul
+    - @media.each do |medium|
+      %li
+        %a{:href => medium.link}
+          %img{:src => medium.images.thumbnail.url}
+        %br
+        by
+        = medium.user.username
