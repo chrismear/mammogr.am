@@ -4,10 +4,11 @@
 %body
   %h1 Snow
   %ul
-    - @media.each do |medium|
+    - @photos.each do |photo|
       %li
-        %a{:href => medium.link}
-          %img{:src => medium.images.thumbnail.url}
-        %br
-        by
-        = medium.user.username
+        - if photo.link_url && !photo.link_url.empty?
+          %a{:href => photo.link_url}
+            %img{:src => photo.image_url}
+          %br
+          by
+          = photo.username
