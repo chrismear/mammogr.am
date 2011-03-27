@@ -19,8 +19,6 @@ Tag.all.each do |tag|
   end
 end
 
-puts "Fetching new media"
-
 require 'instagram'
 
 Instagram.configure do |config|
@@ -28,7 +26,6 @@ Instagram.configure do |config|
 end
 
 client = Instagram.client
-puts "client: #{client.inspect}"
 
 
 # Fetch new media
