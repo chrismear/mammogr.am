@@ -1,4 +1,3 @@
 * Location mapping
-* Crowdsource removal
 * Crowdsource addition
-
+* Permanent log of removals
