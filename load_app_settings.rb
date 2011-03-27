@@ -7,6 +7,7 @@ else
     :instagram => {
       :client_id => ENV['MAMMOGRAM_INSTAGRAM_CLIENT_ID']
     },
-    :database_url => ENV['DATABASE_URL']
+    :database_url => ENV['DATABASE_URL'],
+    :admin_secret => ENV['MAMMOGRAM_ADMIN_SECRET']
   }
 end

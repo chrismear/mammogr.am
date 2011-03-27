@@ -1,0 +1,16 @@
+!!!
+%head
+%body
+  %h2 Flagged photos
+  %ul
+    - @flagged_photos.each do |photo|
+      %li
+        %a{:href => photo.link_url}
+          %img{:src => photo.image_url}
+        %br
+        %form{:action => "/#{@admin_secret}/photos/#{photo.id}/destroy", :method => :post}
+          %input{:type => 'submit', :value => 'Delete'}
+        %form{:action => "/#{@admin_secret}/photos/#{photo.id}/reset", :method => :post}
+          %input{:type => 'submit', :value => 'Reset'}
+        
+    

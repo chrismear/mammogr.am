@@ -9,6 +9,7 @@ class Photo
   property :image_url, String, :length => 255, :required => true
   property :link_url, String, :length => 255, :required => true
   property :username, String, :length => 255, :required => true
+  property :flagged_at, Time
   
   belongs_to :tag
   

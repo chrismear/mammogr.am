@@ -2,3 +2,4 @@
 :instagram: 
   :client_id: YOUR_CLIENT_ID_HERE
 :database_url: postgres://username:password@hostname/database
+:admin_secret: secret_here

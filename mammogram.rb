@@ -13,4 +13,23 @@ class Mammogram < Sinatra::Base
     @photos = Photo.all.to_a.sort_by{rand}[0..24]
     haml :photos
   end
+  
+  get "/#{APP_SETTINGS[:admin_secret]}" do
+    @flagged_photos = Photo.all(:flagged_at.not => nil)
+    @admin_secret = APP_SETTINGS[:admin_secret]
+    haml :admin
+  end
+  
+  post "/#{APP_SETTINGS[:admin_secret]}/photos/:id/destroy" do
+    @photo = Photo.get(params[:id])
+    @photo.destroy
+    redirect ("/#{APP_SETTINGS[:admin_secret]}")
+  end
+  
+  post "/#{APP_SETTINGS[:admin_secret]}/photos/:id/reset" do
+    @photo = Photo.get(params[:id])
+    @photo.flagged_at = nil
+    @photo.save
+    redirect ("/#{APP_SETTINGS[:admin_secret]}")
+  end
 end
