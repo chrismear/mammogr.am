@@ -12,16 +12,20 @@
   #map
     %ul
       - @photos.each do |photo|
-        %li{:id => "photo_#{photo.id}", :style => "display: none;"}
-          %a{:href => photo.link_url, :class => "photo rot#{rand(11)}"}
-            %img{:src => photo.image_url, :height => 150, :width => 150}
-          %div.flag{:style => 'display: none;'}
-            %p
-              %a{:href => "/photos/#{photo.id}/flag"}
-                Not boobs?
-          %div.caption
-            by and &copy;
-            = photo.username
+        %li{:id => "photo_#{photo.id}", :class => "rot#{rand(11)}", :style => "display: none;", :'data-longitude' => photo.longitude_or_random, :'data-latitude' => photo.latitude_or_random}
+          .background{:style => 'display: none;'}
+          .content
+            %a{:href => photo.link_url, :class => "photo"}
+              %img{:src => photo.image_url, :height => 150, :width => 150}
+            %div.caption{:style => 'display: none;'}
+              %p.credit
+                by and &copy;
+                = photo.username
+              %p.flag
+                %a{:href => "/photos/#{photo.id}/flag"}
+                  Not boobs?
+              
+              
   #footer
     %p
       Each photo on this page belongs to its original uploader, who retains the copyright thereto.

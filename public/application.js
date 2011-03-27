@@ -1,15 +1,15 @@
 $(document).ready(function () {
-  $('div.flag a').click(function (event) {
+  $('p.flag a').click(function (event) {
     event.preventDefault();
     var postUrl = $(this).attr('href');
-    var flagDiv = $(this).parent();
+    var flagP = $(this).parent();
     var photoLi = $(this).parents('li');
-    flagDiv.html('Flagging...');
+    flagP.html('Flagging...');
     $.ajax({
       type: 'POST',
       url: postUrl,
       success: function () {
-        flagDiv.html('Thanks.');
+        flagP.html('Thanks.');
         window.setTimeout(function () {
           $(photoLi).fadeOut('fast', function () {
             $(this).remove();
@@ -19,20 +19,32 @@ $(document).ready(function () {
     });
   });
   $('li').hoverIntent(function (event) {
-    $(this).children('div.flag').show();
+    for (var i = 0; i < 11; i++) {
+      if ($(this).hasClass('rot' + i)) {
+        $(this).data('prevRotClass', 'rot' + i);
+        $(this).removeClass('rot' + i);
+      }
+    }
+    $(this).addClass('expand');
+    $(this).find('div.background').show();
+    $(this).find('div.caption').show();
   },
   function (event) {
-    var flag = $(this).children('div.flag');
-    window.setTimeout(function () {flag.hide();}, 500);
+    $(this).removeClass('expand');
+    $(this).addClass($(this).data('prevRotClass'));
+    $(this).find('div.background').hide();
+    $(this).find('div.caption').hide();
   });
   
   $('#map li').each(function(index) {
     var element = $(this);
-    element.css('left', Math.random() * 960 - 75).
-      css('top', Math.random() * 485 - 85);
+    element.
+      css('left', (element.data('longitude') + 180.0) * 960.0 / 360.0 - 80).
+      css('top', (element.data('latitude') * -1.0 + 90.0) * 486.0 / 180.0 - 90);
     window.setTimeout(function() {
-      element.show('scale', {from: {height: 1, width: 1}, percent: 100}, 500);
+      // element.show('scale', {from: {height: 1, width: 1}, percent: 100}, 500);
+      element.fadeIn();
       // Ought to be a CSS transition
-    }, index * 1000 + Math.random() * 500);
+    }, index * 1000 + Math.random() * 3000);
   });
 });

@@ -37,13 +37,19 @@ Tag.all.each do |tag|
     
     media = client.tag_recent_media(tag.name, :count => 50)
     media.each do |medium|
-      photo = Photo.create(
+      
+      photo = Photo.new(
         :instagram_id => medium.id,
         :image_url => medium.images.thumbnail.url,
         :link_url => medium.link,
         :username => medium.user.username,
         :tag => tag
       )
+      if medium.location
+        photo.latitude = medium.location.latitude
+        photo.longitude = medium.location.longitude
+      end
+      photo.save
     end
     
     tag.last_fetched_at = Time.now.utc

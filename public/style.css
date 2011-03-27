@@ -43,14 +43,31 @@ ul {
   width: 100%;
   height: 100%;
   position: relative;
+  list-style-type: none;
 }
 
 li {
-  margin: 20px 10px;
-  width: 150px;
-  height: 170px;
+  margin: 0;
+  width: 160px;
   position: absolute;
   text-align: center;
+  
+  -webkit-transition: all 0.15s ease-in;
+  
+  z-index: 1;
+}
+
+li .background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+li .content {
+  padding: 5px;
 }
 
 li img {
@@ -60,31 +77,18 @@ li img {
 
 li a.photo {
   display: block;
-  -webkit-transition: all 0.15s ease-in;
-}
-
-li a.photo:hover, li a.photo:focus, li a.photo:active {
-  -webkit-transform: rotate(0deg) scale(1.2);
-  -moz-transform: rotate(0deg) scale(1.2);
-  transform: rotate(0deg) scale(1.2);
 }
 
 li .caption {
-  color: #554535;
+  color: #eeeeee;
 }
 
-li div.flag {
-  background-color: black;
+li p.flag {
   font-weight: bold;
-  opacity: 0.7;
 }
 
-li div.flag p {
-  text-align: center;
-}
-
-li div.flag a {
-  color: white;
+li p.flag a {
+  color: #eeeeee;
   text-decoration: none;
 }
 
@@ -96,14 +100,22 @@ li div.flag a {
   text-align: center;
 }
 
-.rot0 {-webkit-transform: rotate(-5deg); -moz-transform: rotate(-5deg); transform: rotate(-5deg);}
-.rot1 {-webkit-transform: rotate(-4deg); -moz-transform: rotate(-4deg); transform: rotate(-4deg);}
-.rot2 {-webkit-transform: rotate(-3deg); -moz-transform: rotate(-3deg); transform: rotate(-3deg);}
-.rot3 {-webkit-transform: rotate(-2deg); -moz-transform: rotate(-2deg); transform: rotate(-2deg);}
-.rot4 {-webkit-transform: rotate(-1deg); -moz-transform: rotate(-1deg); transform: rotate(-1deg);}
-.rot5 {-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); transform: rotate(0deg);}
-.rot6 {-webkit-transform: rotate(1deg); -moz-transform: rotate(1deg); transform: rotate(1deg);}
-.rot7 {-webkit-transform: rotate(2deg); -moz-transform: rotate(2deg); transform: rotate(2deg);}
-.rot8 {-webkit-transform: rotate(3deg); -moz-transform: rotate(3deg); transform: rotate(3deg);}
-.rot9 {-webkit-transform: rotate(4deg); -moz-transform: rotate(4deg); transform: rotate(4deg);}
-.rot10 {-webkit-transform: rotate(5deg); -moz-transform: rotate(5deg); transform: rotate(5deg);}
+.rot0 {-webkit-transform: rotate(-5deg) scale(0.5); -moz-transform: rotate(-5deg) scale(0.5); transform: rotate(-5deg) scale(0.5);}
+.rot1 {-webkit-transform: rotate(-4deg) scale(0.5); -moz-transform: rotate(-4deg) scale(0.5); transform: rotate(-4deg) scale(0.5);}
+.rot2 {-webkit-transform: rotate(-3deg) scale(0.5); -moz-transform: rotate(-3deg) scale(0.5); transform: rotate(-3deg) scale(0.5);}
+.rot3 {-webkit-transform: rotate(-2deg) scale(0.5); -moz-transform: rotate(-2deg) scale(0.5); transform: rotate(-2deg) scale(0.5);}
+.rot4 {-webkit-transform: rotate(-1deg) scale(0.5); -moz-transform: rotate(-1deg) scale(0.5); transform: rotate(-1deg) scale(0.5);}
+.rot5 {-webkit-transform: rotate(0deg) scale(0.5); -moz-transform: rotate(0deg) scale(0.5); transform: rotate(0deg) scale(0.5);}
+.rot6 {-webkit-transform: rotate(1deg) scale(0.5); -moz-transform: rotate(1deg) scale(0.5); transform: rotate(1deg) scale(0.5);}
+.rot7 {-webkit-transform: rotate(2deg) scale(0.5); -moz-transform: rotate(2deg) scale(0.5); transform: rotate(2deg) scale(0.5);}
+.rot8 {-webkit-transform: rotate(3deg) scale(0.5); -moz-transform: rotate(3deg) scale(0.5); transform: rotate(3deg) scale(0.5);}
+.rot9 {-webkit-transform: rotate(4deg) scale(0.5); -moz-transform: rotate(4deg) scale(0.5); transform: rotate(4deg) scale(0.5);}
+.rot10 {-webkit-transform: rotate(5deg) scale(0.5); -moz-transform: rotate(5deg) scale(0.5); transform: rotate(5deg) scale(0.5);}
+
+.expand {
+  -webkit-transform: rotate(0deg) scale(1.2);
+  -moz-transform: rotate(0deg) scale(1.2);
+  transform: rotate(0deg) scale(1.2);
+  
+  z-index: 999;
+}
