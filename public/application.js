@@ -42,9 +42,7 @@ $(document).ready(function () {
       css('left', (element.data('longitude') + 180.0) * 960.0 / 360.0 - 80).
       css('top', (element.data('latitude') * -1.0 + 90.0) * 486.0 / 180.0 - 90);
     window.setTimeout(function() {
-      // element.show('scale', {from: {height: 1, width: 1}, percent: 100}, 500);
       element.fadeIn();
-      // Ought to be a CSS transition
-    }, index * 1000 + Math.random() * 3000);
+    }, index * (2000 + Math.random() * 2000));
   });
 });
