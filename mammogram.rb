@@ -10,7 +10,7 @@ class Mammogram < Sinatra::Base
   
   get '/' do
     # FIXME Make random not hilarious bad here.
-    @photos = Photo.all.to_a.sort_by{rand}[0..15]
+    @photos = Photo.all.to_a.sort_by{rand}[0..24]
     haml :photos
   end
 end
