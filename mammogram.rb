@@ -14,6 +14,13 @@ class Mammogram < Sinatra::Base
     haml :photos
   end
   
+  post '/photos/:id/flag' do
+    @photo = Photo.get(params[:id])
+    @photo.flagged_at = Time.now.utc
+    @photo.save
+    "OK"
+  end
+  
   get "/#{APP_SETTINGS[:admin_secret]}" do
     @flagged_photos = Photo.all(:flagged_at.not => nil)
     @admin_secret = APP_SETTINGS[:admin_secret]

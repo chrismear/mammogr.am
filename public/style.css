@@ -10,6 +10,10 @@ body {
   color: #9a8a69;
 }
 
+a {
+  color: #9a8a69;
+}
+
 h1 {
   text-indent: -9999px;
   width: 340px;
@@ -34,8 +38,11 @@ ul {
 
 li {
   float: left;
-  margin: 10px;
+  margin: 20px 10px;
   width: 150px;
+  height: 170px;
+  position: relative;
+  text-align: center;
 }
 
 li img {
@@ -43,15 +50,34 @@ li img {
   height: 150px;
 }
 
-li a {
+li a.photo {
   display: block;
   -webkit-transition: all 0.15s ease-in;
 }
 
-li a:hover, li a:focus, li a:active {
+li a.photo:hover, li a.photo:focus, li a.photo:active {
   -webkit-transform: rotate(0deg) scale(1.2);
   -moz-transform: rotate(0deg) scale(1.2);
   transform: rotate(0deg) scale(1.2);
+}
+
+li .caption {
+  color: #554535;
+}
+
+li div.flag {
+  background-color: black;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+li div.flag p {
+  text-align: center;
+}
+
+li div.flag a {
+  color: white;
+  text-decoration: none;
 }
 
 #footer {
