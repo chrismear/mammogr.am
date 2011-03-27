@@ -4,7 +4,7 @@ require 'bundler'
 
 require 'init'
 
-TAG_NAMES = ['snow', 'ice']
+TAG_NAMES = %w{boobies boobz breast breasts titties cleavage bra}
 
 # Ensure tags in DB match tags in canonical list
 TAG_NAMES.each do |tag_name|
