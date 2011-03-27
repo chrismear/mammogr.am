@@ -25,4 +25,11 @@ $(document).ready(function () {
     var flag = $(this).children('div.flag');
     window.setTimeout(function () {flag.hide();}, 500);
   });
+  
+  $('#map li').each(function() {
+    $(this).css('left', Math.random() * 960 - 75).
+      css('top', Math.random() * 485 - 85).
+      effect('scale', {from: {height: 1, width: 1}, percent: 100});
+      // Needs to be a CSS transition
+  });
 });
