@@ -26,10 +26,13 @@ $(document).ready(function () {
     window.setTimeout(function () {flag.hide();}, 500);
   });
   
-  $('#map li').each(function() {
-    $(this).css('left', Math.random() * 960 - 75).
-      css('top', Math.random() * 485 - 85).
-      effect('scale', {from: {height: 1, width: 1}, percent: 100});
-      // Needs to be a CSS transition
+  $('#map li').each(function(index) {
+    var element = $(this);
+    element.css('left', Math.random() * 960 - 75).
+      css('top', Math.random() * 485 - 85);
+    window.setTimeout(function() {
+      element.show('scale', {from: {height: 1, width: 1}, percent: 100}, 500);
+      // Ought to be a CSS transition
+    }, index * 1000 + Math.random() * 500);
   });
 });

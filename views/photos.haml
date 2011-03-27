@@ -14,7 +14,7 @@
       - @photos.each do |photo|
         %li{:id => "photo_#{photo.id}", :style => "display: none;"}
           %a{:href => photo.link_url, :class => "photo rot#{rand(11)}"}
-            %img{:src => photo.image_url}
+            %img{:src => photo.image_url, :height => 150, :width => 150}
           %div.flag{:style => 'display: none;'}
             %p
               %a{:href => "/photos/#{photo.id}/flag"}
