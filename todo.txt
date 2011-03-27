@@ -1,1 +1,4 @@
 * Location mapping
+* Crowdsource removal
+* Crowdsource addition
+

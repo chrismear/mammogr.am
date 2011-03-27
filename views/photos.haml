@@ -4,6 +4,7 @@
   %link{:rel => 'stylesheet', :href => '/style.css', :type => 'text/css'}
 %body
   %h1 mammogr.am
+  %h2 Because always, somewhere, someone is taking pictures of boobs.
   %ul
     - @photos.each do |photo|
       %li
@@ -11,5 +12,10 @@
           %a{:href => photo.link_url}
             %img{:src => photo.image_url}
           %br
-          by
+          by and &copy;
           = photo.username
+  #footer
+    %p
+      Each photo on this page belongs to its original uploader, who retains the copyright thereto.
+    %p
+      This product uses the Instagram API but is not endorsed or certified by Instagram.

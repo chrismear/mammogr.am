@@ -19,3 +19,33 @@ h1 {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+
+h2 {
+  font-style: italic;
+  text-align: center;
+  font-weight: normal;
+}
+
+ul {
+  width: 850px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+li {
+  float: left;
+  margin: 10px;
+  width: 150px;
+  overflow: hidden;
+}
+
+li img {
+  width: 150px;
+  height: 150px;
+}
+
+#footer {
+  clear: left;
+  font-size: 0.8em;
+  font-style: italic;
+}
