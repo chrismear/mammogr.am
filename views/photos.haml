@@ -9,7 +9,7 @@
     - @photos.each do |photo|
       %li
         - if photo.link_url && !photo.link_url.empty?
-          %a{:href => photo.link_url}
+          %a{:href => photo.link_url, :class => "rot#{rand(11)}"}
             %img{:src => photo.image_url}
           %br
           by and &copy;
