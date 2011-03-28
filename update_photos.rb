@@ -43,31 +43,33 @@ client = Instagram.client
 
 # Fetch new media
 Tag.all.each do |tag|
-  if tag.last_fetched_at.nil? || ((Time.now.utc - tag.last_fetched_at) > 3600)
-    tag.photos.destroy
+  begin
+    if tag.last_fetched_at.nil? || ((Time.now.utc - tag.last_fetched_at) > 3600)
+      tag.photos.destroy
     
-    puts "Fetching new media for tag #{tag.name}"
+      puts "Fetching new media for tag #{tag.name}"
     
-    media = client.tag_recent_media(tag.name, :count => 50)
-    media.each do |medium|
-      unless Deletion.first(:instagram_id => medium.id)
-        photo = Photo.new(
-          :instagram_id => medium.id,
-          :image_url => medium.images.thumbnail.url,
-          :link_url => medium.link,
-          :username => medium.user.username,
-          :tag => tag
-        )
-        if medium.location
-          photo.latitude = medium.location.latitude
-          photo.longitude = medium.location.longitude
+      media = client.tag_recent_media(tag.name, :count => 50)
+      media.each do |medium|
+        unless Deletion.first(:instagram_id => medium.id)
+          photo = Photo.new(
+            :instagram_id => medium.id,
+            :image_url => medium.images.thumbnail.url,
+            :link_url => medium.link,
+            :username => medium.user.username,
+            :tag => tag
+          )
+          if medium.location
+            photo.latitude = medium.location.latitude
+            photo.longitude = medium.location.longitude
+          end
+          photo.save
         end
-        photo.save
       end
-    end
     
-    tag.last_fetched_at = Time.now.utc
-    tag.save!
+      tag.last_fetched_at = Time.now.utc
+      tag.save!
+    end
+  rescue
   end
-rescue
 end
