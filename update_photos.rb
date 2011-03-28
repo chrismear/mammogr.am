@@ -56,4 +56,5 @@ Tag.all.each do |tag|
     tag.last_fetched_at = Time.now.utc
     tag.save!
   end
+rescue
 end
