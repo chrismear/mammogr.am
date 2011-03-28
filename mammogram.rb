@@ -14,6 +14,11 @@ class Mammogram < Sinatra::Base
     haml :photos
   end
   
+  get '/photos/random' do
+    @photo = Photo.first(:offset => rand(Photo.count))
+    haml :photo
+  end
+  
   post '/photos/:id/flag' do
     @photo = Photo.get(params[:id])
     @photo.flagged_at = Time.now.utc
