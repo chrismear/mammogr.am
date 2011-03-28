@@ -1,2 +1,1 @@
 * Crowdsource addition
-* Permanent log of removals

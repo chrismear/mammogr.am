@@ -34,6 +34,7 @@ class Mammogram < Sinatra::Base
   
   post "/#{APP_SETTINGS[:admin_secret]}/photos/:id/destroy" do
     @photo = Photo.get(params[:id])
+    Deletion.create(:instagram_id => @photo.instagram_id)
     @photo.destroy
     redirect ("/#{APP_SETTINGS[:admin_secret]}")
   end
