@@ -28,6 +28,9 @@ class Mammogram < Sinatra::Base
   get '/' do
     # FIXME Make random not hilarious bad here.
     @photos = Photo.all.to_a.sort_by{rand}[0..24]
+    
+    @analytics = APP_SETTINGS[:analytics]
+    
     haml :photos
   end
   
